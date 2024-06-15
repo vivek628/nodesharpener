@@ -1,11 +1,8 @@
-const path= require('path')
+
 const express=require('express')
 const route=express.Router()
-const rootdir=require('../utils/path.js')
-route.get('/contactus',(req,res,next)=>{
-    res.sendFile(path.join(rootdir,'views','contactus.html'))
-})
-route.post('/success', (req,res,next)=>{
-    res.sendFile(path.join(rootdir,'views','success.html'))
-})
+const contactuscontroller=require('../controllers/contactus.js')
+const successcontrollers=require('../controllers/success.js')
+route.get('/contactus',contactuscontroller)
+route.post('/success', successcontrollers)
 module.exports=route
