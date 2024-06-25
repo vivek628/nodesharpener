@@ -1,4 +1,5 @@
 const Product = require('../models/product');
+const Cart=require('../models/cart')
 const { patch } = require('../routes/admin');
 
 exports.getProducts = (req, res, next) => {
@@ -40,6 +41,15 @@ exports.getCart = (req, res, next) => {
   });
 };
 
+exports.postcart=(req,res,next)=>{
+  const proId=req.body.productId;
+  Product.FindById(proId,(product)=>{
+    Cart.addProduct(proId,product.price)
+  })
+  console.log(proId)
+  res.redirect('/cart')
+
+}
 exports.getOrders = (req, res, next) => {
   res.render('shop/orders', {
     path: '/orders',
