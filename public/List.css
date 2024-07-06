@@ -1,0 +1,55 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.navbar{
+    height: 4rem;
+    width: 100%;
+    background-color: aqua;
+}
+.navbar-item{
+    display: flex;
+    justify-content: space-between;
+  
+     
+}
+.right-item{
+    margin-right: 1rem;
+    margin-top: 1.4rem;
+}
+.left-item{
+    margin-top: 1rem ;
+}
+.right-item a{
+    text-decoration: none;
+    margin-left: 2.5rem;
+    
+    font-size: larger;
+}
+table {
+    margin-top: 3rem;
+    width: 100%;
+    border-collapse: collapse;
+}
+table, th, td {
+    border: 1px solid #ccc;
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+.actions {
+    white-space: nowrap; /* Prevent buttons from wrapping */
+}
+.actions button {
+    margin-right: 5px;
+    
+}
+button{
+    padding: 2px 4px;
+}
+
+.actions{
+    display: flex;
+    justify-content: space-around;
+}
