@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <caption> Total Expense:<%= total%></caption>
+        
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date</th>
+                <th>Expense Detail</th>
+                <th>Amount ($)</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% data.forEach(data => { %>
+            <tr>
+                <td><%= data.id%></td>
+                <td><%=data.date%></td>
+                <td><%= data.expenseDetail %></td>
+                <td><%=data.amount%></td>
+                <td class="btn">
+                    <form action="/delete" method="post">
+                        <input type="hidden" name=id value=<%=data.id %>> 
+                        <button class="delete_btn" type="submit">delete</button>
+                    </form>
+                    <form action="/edit" method="post">
+                        <input type="hidden" name=id value=<%=data.id %>> 
+                        <button class="edit_btn" type="submit">edit</button>
+                    </form>
+                </td>
+            </tr>
+            <% }); %>
+            
+        </tbody>
+    </table>
+</body>
+</html>
