@@ -1,24 +1,24 @@
 const Product = require('../models/product');
 const Cart=require('../models/cart')
 const { patch } = require('../routes/admin');
+const { where } = require('sequelize');
 
 exports.getProducts = (req, res, next) => {
-  Product.fetchAll().then(([rows,fieldData])=>{
-    
+  Product.findAll().then(product=>{
     res.render('shop/product-list', {
-      prods: rows,
-      pageTitle: 'All Products',
+      prods: product,
+      pageTitle: 'all products',
       path: '/products'
     })
-  }).catch((e)=>console.log(e))
+  }).catch(err=>console.log(err));
 
 };
 exports.getProduct=(req,res,next)=>{
   const id=req.params.productId
-  Product.FindById(id).then(([product])=>{
+  Product.findAll({where:{id:id}}).then((product)=>{
     res.render('shop/product-detail',{
       product:product[0],
-      pageTitle:product.title,
+      pageTitle:product[0].title,
       path:'/products'
      });
   }).catch(e=>console.log(e))
@@ -29,9 +29,9 @@ exports.getProduct=(req,res,next)=>{
 };
 
 exports.getIndex = (req, res, next) => {
-  Product.fetchAll().then(([rows,fieldElement])=>{
+  Product.findAll().then(product=>{
     res.render('shop/index', {
-      prods: rows,
+      prods: product,
       pageTitle: 'Shop',
       path: '/'
     })
