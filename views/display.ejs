@@ -1,0 +1,19 @@
+<%- include('../inclueds/head',{css:"head.css"}) %>
+
+<form action="/submit" method="POST">
+    <input type="hidden" name="date" value=<%=dateData %> required>
+    <% data.forEach(student => { %>
+        <div class="student">
+            <h3><%= student.Name %> - <%= student.id %></h3>
+            <input type="hidden" name="id" value="<%= student.id %>">
+            <input type="radio" id="present_<%= student.id %>" name="status_<%= student.id %>" value="Present">
+            <label for="present_<%= student.id %>">Present</label><br>
+            <input type="radio" id="absent_<%= student.id %>" name="status_<%= student.id %>" value="Absent">
+            <label for="absent_<%= student.id %>">Absent</label><br><br>
+        </div>
+    <% }); %>
+
+    <input type="submit" value="Submit">
+    </form>
+
+<%- include('../inclueds/end') %>

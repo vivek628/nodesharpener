@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATTENDANCE</title>
+    <link rel="stylesheet" href="addstudent.css">
+</head>
+<body>
+    <div class=" nav-bar">
+        <div class="left">
+            <form action="/display" method="POST">
+                <span>SELECT A DATE :</span>
+                <input type="date" required>
+                <button type="submit">SEARCH</button>
+            </form>
+        </div>
+        <div class="right">
+            <form action="/fetchAll" method="POST">
+                <button type="submit">FETCH DATA</button>
+            </form>
+        </div>
+    </div>
+    <div class="form">
+        <form action="/add" method="POST" >
+            <label for="">ENTER YOUR FIRTS NAME:</label>
+            <input type="text" name="name" required>
+            <label for="">ENTER YOUR EMAIL:</label>
+            <input type="email" name="email" required>
+            <button type=" submit">ADD</button>
+        </form>
+    </div>
+   
+</body>
+</html>

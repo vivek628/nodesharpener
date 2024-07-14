@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="fetchdata.css">
+</head>
+<body>
+    <div class=" nav-bar">
+        <div class="left">
+            <form action="/display" method="POST">
+                <span>SELECT A DATE :</span>
+                <input type="date" name="date" required>
+                <button type="submit">SEARCH</button>
+            </form>
+        </div>
+        <div class="right">
+            <form action="/add" method="POST">
+                <button type="submit">ADD STUDENT</button>
+            </form>
+            <form action="/" method="POST">
+                <button type="submit">HOME</button>
+            </form>
+        </div>
+    </div>
+</body>
+    <div class="main-container">
+        <div class="container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student Name</th>
+                        <th>Attendance Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% student.forEach(student => { %>
+                    <tr>
+                        <td><%= student.Name %></td>
+                        <td>
+                            <%= student.percentage %>%
+                        </td>
+                    </tr>
+               <% }); %>
+                    
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</body>
+</html>
